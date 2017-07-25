@@ -49,9 +49,14 @@ build-iPhoneSimulator/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 
+<<<<<<< 06d50b2ec7d819782d58d6a74494ec6c3abb3ae4
 # database and secrets files
 # /config/database.yml
 # /config/secrets.yml
 
 # log files
+=======
+/congig/database.yml
+/config/secrets.yml
+>>>>>>> Made skeleton of user manipulation in the system
 /log/
