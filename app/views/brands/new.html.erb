@@ -1,5 +1,7 @@
-<h1>New category</h1>
+<% content_for :title, "New Brand" %>
+
+<h1><%= yield(:title) %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', brands_path %>
+<%= link_to 'Back', brands_path, class: "btn btn-default" %>

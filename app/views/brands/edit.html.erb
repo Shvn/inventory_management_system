@@ -1,5 +1,7 @@
-<h1>Edit brand</h1>
+<% content_for :title, "Edit Brand" %>
+
+<h1><%= yield(:title) %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', brands_path %>
+<%= link_to 'Back', brands_path, class: "btn btn-default" %>

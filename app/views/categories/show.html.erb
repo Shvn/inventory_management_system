@@ -1,4 +1,6 @@
-<h1>Category Details</h1>
+<% content_for :title, "Category Details" %>
+
+<h1><%= yield(:title) %></h1>
 
 <%= render 'shared/flash' %>
 
@@ -7,5 +9,5 @@
   <%= @category.name %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %>
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Edit', edit_category_path(@category), class: "btn btn-primary" %>
+<%= link_to 'Back', categories_path, class: "btn btn-default" %>

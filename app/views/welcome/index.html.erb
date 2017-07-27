@@ -1,0 +1,43 @@
+<% content_for :title, "Inventory Management System" %>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>Hello, User!</h1>
+    <p>Welcome to a light-weight, easy-to-use and responsive inventory management system. From now on keep records of all your inventories hassle free and easily with our all-in-one powerful application.</p>
+    <p><a class="btn btn-primary btn-lg" href="#get-started" role="button">Get started</a></p>
+  </div>
+</div>
+<div class="row" id="get-started">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="row section">
+      <div class="col-md-4">
+        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+      </div>
+      <div class="col-md-8">
+        <h2>Categories</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+        <%= link_to "Create", categories_path(), class: 'btn btn-primary btn-md' %>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="col-md-4">
+        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+      </div>
+      <div class="col-md-8">
+        <h2>Brands</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+        <%= link_to "Create", brands_path(), class: 'btn btn-primary btn-md' %>
+      </div>
+    </div>
+    <div class="row section">
+      <div class="col-md-4">
+        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+      </div>
+      <div class="col-md-8">
+        <h2>Items</h2>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+        <%= link_to "Create", items_path(), class: 'btn btn-primary btn-md' %>
+      </div>
+    </div>
+  </div>
+</div>
