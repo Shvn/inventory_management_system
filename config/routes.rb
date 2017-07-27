@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'category/index'
+  get 'welcome/index'
+
+  root 'welcome#index'
 
   resources :items, except: :destroy
   resources :categories

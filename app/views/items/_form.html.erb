@@ -14,23 +14,23 @@
     </div>
   <% end %>
 
-  <p>
+  <p class="input-group">
     <%= f.label :category_id %><br>
-    <%= f.collection_select :category_id, Category.all, :id, :name, :include_blank => "None" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, { include_blank: "None" }, { class: "form-control" } %>
   </p>
 
-  <p>
+  <p class="input-group">
     <%= f.label :brand_id %><br>
-    <%= f.collection_select :brand_id, Brand.all, :id, :name, :include_blank => "Select brand" %>
+    <%= f.collection_select :brand_id, Brand.all, :id, :name, { include_blank: "Select brand" }, { class: "form-control" } %>
   </p>
 
-  <p>
+  <p class="input-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </p>
 
   <p>
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-primary" %>
   </p>
 
 <% end %>

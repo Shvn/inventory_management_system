@@ -1,10 +1,12 @@
-<h1>Listing Items</h1>
+<% content_for :title, "Listing Items" %>
 
-<%= link_to 'New item', new_item_path %>
+<h1><%= yield(:title) %></h1>
+
+<%= link_to 'New item', new_item_path, class: "btn btn-success" %>
 
 <%= render 'shared/flash' %>
 
-<table>
+<table class="table table-rsponsive table-striped" id="list-table">
   <tr>
     <th>Name</th>
     <th colspan="2"></th>
