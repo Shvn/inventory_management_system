@@ -1,0 +1,26 @@
+<h1>Listing Items</h1>
+
+<%= link_to 'New item', new_item_path %>
+
+<%= render 'shared/flash' %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% if @items.present? %>
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.name %></td>
+        <td><%= link_to 'View', item_path(item) %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="3">No item found!</td>
+    </tr>
+  <% end %>
+</table>

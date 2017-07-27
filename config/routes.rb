@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'category/index'
 
+  resources :items, except: :destroy
   resources :categories
   resources :brands
 
