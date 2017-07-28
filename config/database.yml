@@ -48,9 +48,10 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: inventory_management_system_production
-  username: inventory_management_system
-  password: <%= ENV['INVENTORY_MANAGEMENT_SYSTEM_DATABASE_PASSWORD'] %>
+    adapter: postgresql
+    encoding: unicode
+    pool: 5
+    database: d2itihm7hp698i
+    username: wvtukfzevkefjr
+    password: <%= ENV['DATABASE_PASSWORD'] %>
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
