@@ -50,8 +50,8 @@ build-iPhoneSimulator/
 .rvmrc
 
 # database and secrets files
-/config/database.yml
-/config/secrets.yml
+# /config/database.yml
+# /config/secrets.yml
 
 # log files
 /log/
