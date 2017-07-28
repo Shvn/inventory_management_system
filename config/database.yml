@@ -52,3 +52,4 @@ production:
   pool: <%= ENV["DB_POOL"] || ENV['RAILS_MAX_THREADS'] || 5 %>
   adapter: postgresql
   encoding: utf8
+  host: localhost
