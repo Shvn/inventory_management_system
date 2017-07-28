@@ -1,10 +1,31 @@
 #main-cont {
   margin-top: 60px;
 }
-.footer {
-  height: 100px;
-  // background: #333;
-}
 #list-table {
   margin-top: 30px;
+}
+footer{
+  background-color: #e7e7e7;
+  padding: 20px 0;
+  margin-top: 20px;
+}
+.footer-links{
+  list-style: none;
+  padding: 0;
+}
+.footer-links li{
+  display: inline-block;
+  padding: 5px 10px;
+}
+.footer-bottom{
+  margin-top: 20px;
+  display: block;
+}
+@media screen and (max-width:767px){
+  .footer-links li{
+    display: block;
+  }
+  .footer-bottom span{
+    display: block;
+  }
 }
