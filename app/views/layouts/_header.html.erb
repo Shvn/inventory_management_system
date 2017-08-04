@@ -1,7 +1,7 @@
 <header class="navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -9,9 +9,16 @@
       </button>
       <%= link_to "Inventory Management System", root_path, class: 'navbar-brand' %>
     </div>
-    <nav class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
+      <% if signned_in? %>
+        <li class="current_user" title="Click to Sign Out">
+          <%= link_to current_user.name, signout_path, method: :delete %>
+        </li>
+      <% else %>
+        <li title="Click to Sign In"><%= link_to "Sign In", signin_path %></li>
+      <% end %>
       </ul>
-    </nav>
+    </div>
   </div>
 </header>
