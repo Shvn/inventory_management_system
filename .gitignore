@@ -53,5 +53,4 @@ build-iPhoneSimulator/
 # /config/database.yml
 # /config/secrets.yml
 
-# log files
 /log/
