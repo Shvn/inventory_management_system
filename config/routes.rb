@@ -6,5 +6,7 @@ Rails.application.routes.draw do
   resources :items, except: :destroy
   resources :categories
   resources :brands
-  resources :users
+  resources :users, only: [:new, :create]
+
+  get '/users/signup', to: 'users#new', as: :signup
 end
