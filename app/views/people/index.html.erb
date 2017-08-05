@@ -1,0 +1,30 @@
+<% content_for :title, "Listing People" %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= link_to 'New person', new_person_path, class: "btn btn-success" %>
+
+<%= render 'shared/flash' %>
+
+<table class="table table-rsponsive table-striped" id="list-table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Mobile</th>
+  </tr>
+
+  <% if @people.present? %>
+    <% @people.each do |person| %>
+      <tr>
+        <td><%= person.name %></td>
+        <td><%= person.email %></td>
+        <td><%= person.mobile %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="3">No person found!</td>
+    </tr>
+  <% end %>
+</table>
+<%= render 'shared/prev_n_home_links' %>

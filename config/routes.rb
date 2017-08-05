@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :brands
   resources :users, only: [:new, :create]
+  resources :people, only: [:index, :new, :create]
 
   get '/signup', to: 'users#new'
   get '/signin', to: 'sessions#new'
