@@ -1,4 +1,6 @@
 class Person < ApplicationRecord
+  has_many :items, through: :allotments, dependent: :nullify
+
   before_save { self.name = name.titleize }
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }

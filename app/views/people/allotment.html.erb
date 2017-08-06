@@ -1,0 +1,26 @@
+<% content_for :title, "Listing #{@allotments.first.person.name}'s Allotments" %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= render 'shared/flash' %>
+
+<table class="table table-rsponsive table-striped" id="list-table">
+  <tr>
+    <th>Item</th>
+    <th>Time</th>
+  </tr>
+
+  <% if @allotments.present? %>
+    <% @allotments.each do |allotment| %>
+      <tr>
+        <td><%= allotment.item.name %></td>
+        <td><%= allotment.created_at %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="2">No allotment found!</td>
+    </tr>
+  <% end %>
+</table>
+<%= render 'shared/prev_n_home_links' %>
