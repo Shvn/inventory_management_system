@@ -1,7 +1,7 @@
 class Allotment < ApplicationRecord
   belongs_to :item
   belongs_to :person
-  has_many :allotment_histories
+  has_many :allotment_histories, dependent: :destroy
 
   validates :item_id, presence: true, uniqueness: { scope: :person_id }
   validates :person_id, presence: true, uniqueness: { scope: :item_id }
