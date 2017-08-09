@@ -14,7 +14,15 @@ class Allotment < ApplicationRecord
   scope :find_person_allotments, -> (id) { joins(:item, :person).where(person_id: id) }
 
   def add_history
-    allotment_history = AllotmentHistory.new(allotment_id: self.id, action: self.status)
+    allotment_history = AllotmentHistory.new(allotment_id: id, action: status)
     allotment_history.save
+  end
+
+  def deallocated
+    status == 'Deallocated'
+  end
+
+  def allocated
+    status == 'Allocated'
   end
 end

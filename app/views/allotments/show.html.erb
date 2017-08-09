@@ -22,8 +22,8 @@
 <%= link_to 'Back', allotments_path, class: "btn btn-default" %>
 <%= link_to 'Reallocate', allotment_path(@allotment),
         class: "btn btn-primary",
-        method: :put if @allotment.status == 'Deallocated' %>
+        method: :put if @allotment.deallocated %>
 <%= link_to 'Deallocate', allotment_path(@allotment),
         class: "btn btn-danger",
         method: :delete,
-        data: { confirm: 'Are you sure?' } if @allotment.status == 'Allocated' %>
+        data: { confirm: 'Are you sure?' } if @allotment.allocated %>

@@ -26,22 +26,22 @@ class AllotmentsController < ApplicationController
 
   def update
     default = { status: "Allocated" }
-    if @allotment.update_attributes(default)
+    if @allotment.update(default)
       flash[:success] = "Successfully allocated"
-      redirect_to allotments_path
     else
-      flash.now[:danger] = "Could not allocate"
+      flash[:danger] = "Could not allocate"
     end
+    redirect_to allotments_path
   end
 
   def destroy
     default = { status: "Deallocated" }
-    if @allotment.update_attributes(default)
+    if @allotment.update(default)
       flash[:success] = "Successfully deallocated"
-      redirect_to allotments_path
     else
-      flash.now[:danger] = "Could not deallocate"
+      flash[:danger] = "Could not deallocate"
     end
+    redirect_to allotments_path
   end
 
   def history
