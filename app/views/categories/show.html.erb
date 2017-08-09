@@ -1,13 +1,17 @@
 <% content_for :title, "Category Details" %>
 
-<h1><%= yield(:title) %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= yield(:title) %></h1>
 
-<%= render 'shared/flash' %>
+    <%= render 'shared/flash' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @category.name %>
+    </p>
 
-<%= link_to 'Edit', edit_category_path(@category), class: "btn btn-primary" %>
-<%= link_to 'Back', categories_path, class: "btn btn-default" %>
+    <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-primary" %>
+    <%= link_to 'Back', categories_path, class: "btn btn-default" %>
+  </div>
+</div>
