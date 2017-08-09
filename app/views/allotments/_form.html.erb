@@ -14,12 +14,12 @@
     </div>
   <% end %>
 
-  <p class="input-group">
+  <p>
     <%= f.label :item_id %><br>
     <%= f.collection_select :item_id, Item.all, :id, :name, { include_blank: "Select item" }, { class: "form-control" } %>
   </p>
 
-  <p class="input-group">
+  <p>
     <%= f.label :person_id %><br>
     <%= f.collection_select :person_id, Person.all, :id, :name, { include_blank: "Select person" }, { class: "form-control" } %>
   </p>

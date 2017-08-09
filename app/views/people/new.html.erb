@@ -1,43 +1,48 @@
 <% content_for :title, "New Person" %>
 
-<h1><%= yield(:title) %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= yield(:title) %></h1>
 
-<%= form_for(@person) do |f| %>
+    <%= form_for(@person) do |f| %>
 
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@person.errors.count, "error") %> prohibited
-        this person from being saved:
-      </h2>
-      <ul>
-        <% @person.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% else %>
-    <%= render 'shared/flash' %>
-  <% end %>
+      <% if @person.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@person.errors.count, "error") %> prohibited
+            this person from being saved:
+          </h2>
+          <ul>
+            <% @person.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% else %>
+        <%= render 'shared/flash' %>
+      <% end %>
 
-  <p class="input-group">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, class: "form-control" %>
-  </p>
+      <p>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, class: "form-control" %>
+      </p>
 
-  <p class="input-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email, class: "form-control" %>
-  </p>
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: "form-control" %>
+      </p>
 
-  <p class="input-group">
-    <%= f.label :mobile %><br>
-    <%= f.text_field :mobile, class: "form-control" %>
-  </p>
+      <p>
+        <%= f.label :mobile %><br>
+        <%= f.text_field :mobile, class: "form-control" %>
+      </p>
 
-  <p>
-    <%= link_to "Previous", :back, class: "btn btn-default" %>
-    <%= f.submit class: 'btn btn-primary' %>
-  </p>
+      <p>
+        <%= f.submit class: 'btn btn-primary' %>
+      </p>
 
-<% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= link_to "Back", people_path, class: "btn btn-default" %>

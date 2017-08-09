@@ -4,60 +4,64 @@
   <div class="container">
     <h1>Hello, User!</h1>
     <p>Welcome to a light-weight, easy-to-use and responsive inventory management system. From now on keep records of all your inventories hassle free and easily with our all-in-one powerful application.</p>
-    <p><a class="btn btn-primary btn-lg" href="#get-started" role="button">Get started</a></p>
+    <% unless signned_in? %>
+      <p><%= link_to "Get Started", signin_path, class: "btn btn-primary btn-lg" %></p>
+    <% end %>
   </div>
 </div>
-<div class="row" id="get-started">
-  <div class="col-md-10 col-md-offset-1">
-    <div class="row section">
-      <div class="col-md-4">
-        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+<% if signned_in? %>
+  <div class="row" id="get-started">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row section">
+        <div class="col-md-4">
+          <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+        </div>
+        <div class="col-md-8">
+          <h2>Categories</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <%= link_to "View", categories_path(), class: 'btn btn-primary btn-md' %>
+        </div>
       </div>
-      <div class="col-md-8">
-        <h2>Categories</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-        <%= link_to "View", categories_path(), class: 'btn btn-primary btn-md' %>
+      <div class="row section">
+        <div class="col-md-4">
+          <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+        </div>
+        <div class="col-md-8">
+          <h2>Brands</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <%= link_to "View", brands_path(), class: 'btn btn-primary btn-md' %>
+        </div>
       </div>
-    </div>
-    <div class="row section">
-      <div class="col-md-4">
-        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+      <div class="row section">
+        <div class="col-md-4">
+          <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+        </div>
+        <div class="col-md-8">
+          <h2>Items</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <%= link_to "View", items_path(), class: 'btn btn-primary btn-md' %>
+        </div>
       </div>
-      <div class="col-md-8">
-        <h2>Brands</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-        <%= link_to "View", brands_path(), class: 'btn btn-primary btn-md' %>
+      <div class="row section">
+        <div class="col-md-4">
+          <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+        </div>
+        <div class="col-md-8">
+          <h2>People</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <%= link_to "View", people_path(), class: 'btn btn-primary btn-md' %>
+        </div>
       </div>
-    </div>
-    <div class="row section">
-      <div class="col-md-4">
-        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
-      </div>
-      <div class="col-md-8">
-        <h2>Items</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-        <%= link_to "View", items_path(), class: 'btn btn-primary btn-md' %>
-      </div>
-    </div>
-    <div class="row section">
-      <div class="col-md-4">
-        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
-      </div>
-      <div class="col-md-8">
-        <h2>People</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-        <%= link_to "View", people_path(), class: 'btn btn-primary btn-md' %>
-      </div>
-    </div>
-    <div class="row section">
-      <div class="col-md-4">
-        <%= image_tag(image_path('image.jpg'), class: "center-block") %>
-      </div>
-      <div class="col-md-8">
-        <h2>Allotments</h2>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
-        <%= link_to "View", allotments_path(), class: 'btn btn-primary btn-md' %>
+      <div class="row section">
+        <div class="col-md-4">
+          <%= image_tag(image_path('image.jpg'), class: "center-block") %>
+        </div>
+        <div class="col-md-8">
+          <h2>Allotments</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</p>
+          <%= link_to "View", allotments_path(), class: 'btn btn-primary btn-md' %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>
