@@ -1,0 +1,7 @@
+<% content_for :title, "New Allotment" %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', allotments_path, class: "btn btn-default" %>

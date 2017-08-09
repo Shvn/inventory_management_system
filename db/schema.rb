@@ -10,8 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< 06d50b2ec7d819782d58d6a74494ec6c3abb3ae4
-ActiveRecord::Schema.define(version: 20170727084502) do
+ActiveRecord::Schema.define(version: 20170806083126) do
+
+  create_table "allotment_histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "allotment_id"
+    t.string "action"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["allotment_id"], name: "index_allotment_histories_on_allotment_id"
+  end
+
+  create_table "allotments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "item_id"
+    t.bigint "person_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id", "person_id"], name: "index_allotments_on_item_id_and_person_id"
+    t.index ["item_id"], name: "index_allotments_on_item_id"
+    t.index ["person_id"], name: "index_allotments_on_person_id"
+  end
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -34,9 +52,14 @@ ActiveRecord::Schema.define(version: 20170727084502) do
     t.index ["brand_id"], name: "index_items_on_brand_id"
     t.index ["category_id"], name: "index_items_on_category_id"
   end
-=======
-ActiveRecord::Schema.define(version: 20170719083930) do
->>>>>>> Made skeleton of user manipulation in the system
+
+  create_table "people", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "email"
+    t.string "mobile"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
@@ -46,9 +69,6 @@ ActiveRecord::Schema.define(version: 20170719083930) do
     t.string "password_digest"
   end
 
-<<<<<<< 06d50b2ec7d819782d58d6a74494ec6c3abb3ae4
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-=======
->>>>>>> Made skeleton of user manipulation in the system
 end
