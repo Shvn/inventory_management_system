@@ -1,0 +1,29 @@
+<% content_for :title, "Sign In" %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= yield(:title) %></h1>
+
+    <%= form_for(:session, url: signin_path) do |f| %>
+
+      <%= render 'shared/flash' %>
+
+      <p>
+        <%= f.label :email %><br>
+        <%= f.text_field :email, class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, class: "form-control" %>
+      </p>
+
+      <p>
+        <%= f.submit "Sign In", class: 'btn btn-primary' %>
+      </p>
+
+      <p class="text-center">New user? <%= link_to "Sign Up here", signup_path %></p>
+
+    <% end %>
+  </div>
+</div>

@@ -1,13 +1,17 @@
 <% content_for :title, "Brand Details" %>
 
-<h1><%= yield(:title) %></h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= yield(:title) %></h1>
 
-<%= render 'shared/flash' %>
+    <%= render 'shared/flash' %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @brand.name %>
+    </p>
 
-<%= link_to 'Edit', edit_brand_path(@brand), class: "btn btn-primary" %>
-<%= link_to 'Back', brands_path, class: "btn btn-default" %>
+    <%= link_to 'Edit', edit_brand_path(@brand), class: "btn btn-primary" %>
+    <%= link_to 'Back', brands_path, class: "btn btn-default" %>
+  </div>
+</div>
