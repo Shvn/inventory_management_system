@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_action :authenticate_user
+  before_action :check_if_already_authenticated, except: :destroy
 
   def new
   end
