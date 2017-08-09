@@ -1,4 +1,6 @@
 class Person < ApplicationRecord
+  has_many :items, through: :allotments, dependent: :nullify
+
   before_save { self.name = name.titleize }
   before_save { self.email = email.downcase }
   validates :name,  presence: true, length: { maximum: 50 }
@@ -8,5 +10,5 @@ class Person < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  validates :mobile, presence: true, length: { is: 10 }, numericality: true
+  validates :mobile, presence: true, length: { is: 10 }, numericality: { only_integer: true }
 end

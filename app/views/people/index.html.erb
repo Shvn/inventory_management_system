@@ -11,6 +11,7 @@
     <th>Name</th>
     <th>Email</th>
     <th>Mobile</th>
+    <th></th>
   </tr>
 
   <% if @people.present? %>
@@ -19,6 +20,7 @@
         <td><%= person.name %></td>
         <td><%= person.email %></td>
         <td><%= person.mobile %></td>
+        <td><%= link_to 'Allotments', allotment_person_path(person) %></td>
       </tr>
     <% end %>
   <% else %>

@@ -35,6 +35,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def allotment
+    @allotments = Allotment.find_item_allotments(params[:id]).order_descending
+  end
+
+  def history
+    @allotment_histories = AllotmentHistory.find_item_histories(params[:id]).order_descending
+  end
+
   private
 
     def get_item

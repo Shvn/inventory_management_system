@@ -18,6 +18,10 @@ class PeopleController < ApplicationController
     end
   end
 
+  def allotment
+    @allotments = Allotment.find_person_allotments(params[:id]).order_descending
+  end
+
   private
 
     def person_params
