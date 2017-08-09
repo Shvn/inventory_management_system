@@ -9,7 +9,7 @@
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
     <th>Name</th>
-    <th colspan="2"></th>
+    <th colspan="4"></th>
   </tr>
 
   <% if @items.present? %>
@@ -18,11 +18,14 @@
         <td><%= item.name %></td>
         <td><%= link_to 'View', item_path(item) %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Allotments', allotment_item_path(item) %></td>
+        <td><%= link_to 'History', history_item_path(item) %></td>
       </tr>
     <% end %>
   <% else %>
     <tr>
-      <td colspan="3">No item found!</td>
+      <td colspan="5">No item found!</td>
     </tr>
   <% end %>
 </table>
+<%= render 'shared/prev_n_home_links' %>
