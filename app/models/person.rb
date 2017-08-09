@@ -1,5 +1,6 @@
 class Person < ApplicationRecord
-  has_many :items, through: :allotments, dependent: :nullify
+  has_many :allotments
+  has_many :items, through: :allotments, dependent: :destroy
 
   before_save { self.name = name.titleize }
   before_save { self.email = email.downcase }
