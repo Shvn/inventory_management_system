@@ -3,6 +3,7 @@ class Item < ApplicationRecord
   belongs_to :brand
   has_many :allotments
   has_many :user, through: :allotments, dependent: :destroy
+  has_many :issues, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2 }, uniqueness: { case_sensitive: false }
   validates :brand, presence: true

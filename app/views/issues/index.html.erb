@@ -1,0 +1,33 @@
+<% content_for :title, "Listing Issues" %>
+
+<h1><%= yield(:title) %></h1>
+
+<%= link_to 'New Issue', new_issue_path, class: "btn btn-success" %>
+
+<%= render 'shared/flash' %>
+
+<table class="table table-rsponsive table-striped" id="list-table">
+  <tr>
+    <th>User</th>
+    <th>Item</th>
+    <th>Status</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% if @issues.present? %>
+    <% @issues.each do |issue| %>
+      <tr>
+        <td><%= issue.user.name %></td>
+        <td><%= issue.item.name %></td>
+        <td><%= issue.status %></td>
+        <td><%= link_to 'Edit', edit_issue_path(issue) if is_author(issue) %></td>
+        <td><%= link_to 'View', issue_path(issue) %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="5">No issues found!</td>
+    </tr>
+  <% end %>
+</table>
+<%= render 'shared/prev_n_home_links' %>
