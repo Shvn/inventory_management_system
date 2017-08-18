@@ -26,4 +26,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+
+  get '/admin/signup', to: 'users#new'
+  post '/admin/signup', to: 'users#admin'
 end

@@ -1,8 +1,11 @@
 class AllotmentsController < ApplicationController
   before_action :get_allotment, only: [:show, :update, :destroy]
+  before_action :check_quantity, only: [:update_buffer]
+  after_action :decrement_quantity, only: [:create, :update]
+  after_action :incement_quantity, only: [:destroy]
 
   def index
-    @allotments = Allotment.includes(:item, :person).all.order_descending
+    @allotments = Allotment.includes(:item, :user).all.order_descending
   end
 
   def new
@@ -55,6 +58,23 @@ class AllotmentsController < ApplicationController
     end
 
     def allotment_params
-      params.require(:allotment).permit(:item_id, :person_id, :status)
+      params.require(:allotment).permit(:item_id, :user_id, :status)
+    end
+
+    def check_quantity
+      notify_admin if buffer_quantity_reached
+    end
+
+    def increment_quantity
+      item = Item.find(@allotment.item_id)
+      item.increment!(:quantity)
+    end
+
+    def decrement_quantity
+      item = Item.find(@allotment.item_id)
+      item.decrement!(:quantity)
+    end
+
+    def notify_admin
     end
 end

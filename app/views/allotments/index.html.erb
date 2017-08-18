@@ -19,7 +19,7 @@
     <% @allotments.each do |allotment| %>
       <tr>
         <td><%= allotment.item.name %></td>
-        <td><%= allotment.person.name %></td>
+        <td><%= allotment.user.name %></td>
         <td><%= allotment.status %></td>
         <td><%= allotment.created_at %></td>
         <td><%= link_to 'View', allotment_path(allotment) %></td>

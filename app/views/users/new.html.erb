@@ -31,6 +31,11 @@
       </p>
 
       <p>
+        <%= f.label :mobile %><br>
+        <%= f.text_field :mobile, class: "form-control" %>
+      </p>
+
+      <p>
         <%= f.label :password %><br>
         <%= f.password_field :password, class: "form-control" %>
       </p>
@@ -44,6 +49,8 @@
         <%= f.submit class: 'btn btn-primary' %>
       </p>
 
+      <p class="text-center"><%= link_to "Sign Up as admin", admin_signup_path %> <%= link_to "Sign Up as user", signup_path %></p>
+      
       <p class="text-center">Registered user? <%= link_to "Sign In here", signin_path %></p>
 
     <% end %>

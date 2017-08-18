@@ -30,6 +30,21 @@
   </p>
 
   <p>
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :time_of_procurement %><br>
+    <%= f.number_field :time_of_procurement, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :buffer_quantity %><br>
+    <%= f.number_field :buffer_quantity, class: "form-control" %>
+  </p>
+
+  <p>
     <%= f.submit class: "btn btn-primary" %>
   </p>
 

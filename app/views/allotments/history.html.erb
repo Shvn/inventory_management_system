@@ -16,7 +16,7 @@
     <% @allotment_histories.each do |history| %>
       <tr>
         <td><%= history.allotment.item.name %></td>
-        <td><%= history.allotment.person.name %></td>
+        <td><%= history.allotment.user.name %></td>
         <td><%= history.action %></td>
         <td><%= history.created_at %></td>
       </tr>

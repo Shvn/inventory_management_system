@@ -7,8 +7,28 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    default = { is_admin: false }
+    @user = User.new(user_params.merge(default))
+    save_user
+  end
 
+  def admin
+    default = { is_admin: true }
+    @user = User.new(user_params.merge(default))
+    save_user
+  end
+
+  def allotment
+    @allotments = Allotment.find_user_allotments(params[:id]).order_descending
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :mobile, :is_admin)
+  end
+
+  def save_user
     if @user.save
       flash.now[:success] = "User successfully created"
       signin @user
@@ -16,11 +36,5 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
-  end
-
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end
 end
