@@ -12,7 +12,11 @@ class UsersController < ApplicationController
     save_user
   end
 
-  def admin
+  def new_admin
+    @user = User.new
+  end
+
+  def create_admin
     default = { is_admin: true }
     @user = User.new(user_params.merge(default))
     save_user

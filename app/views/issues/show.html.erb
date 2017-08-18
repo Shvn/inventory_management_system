@@ -1,0 +1,32 @@
+<% content_for :title, "Issue Details" %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1><%= yield(:title) %></h1>
+
+    <%= render 'shared/flash' %>
+
+    <p>
+      <strong>Item:</strong>
+      <%= @issue.item.name %>
+    </p>
+
+    <p>
+      <strong>Raised By:</strong>
+      <%= @issue.user.name %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @issue.status %>
+    </p>
+
+    <p>
+      <strong>Details:</strong>
+      <%= @issue.details %>
+    </p>
+
+    <%= link_to 'Back', issues_path, class: "btn btn-default" %>
+    <%= link_to 'Resolve', resolve_issue_path(@issue), class: "btn btn-success" if is_admin and @issue.raised %>
+  </div>
+</div>
