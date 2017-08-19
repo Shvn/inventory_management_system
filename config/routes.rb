@@ -9,16 +9,15 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :brands
-  resources :users, only: [:new, :create]
-  resources :people, only: [:index, :new, :create] do
-    member do
-      get 'allotment'
-      get 'history'
-    end
-  end
+  resources :users, only: [:index, :new, :create]
   resources :allotments, except: [:edit] do
     member do
       get 'history'
+    end
+  end
+  resources :issues, except: [:destroy] do
+    member do
+      get 'resolve'
     end
   end
 
@@ -26,4 +25,7 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new'
   post '/signin', to: 'sessions#create'
   delete '/signout', to: 'sessions#destroy'
+
+  get '/admin/signup', to: 'users#new_admin'
+  post '/admin/signup', to: 'users#create_admin'
 end

@@ -6,14 +6,14 @@
 
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
-    <th>Person</th>
+    <th>User</th>
     <th>Time</th>
   </tr>
 
   <% if @allotments.present? %>
     <% @allotments.each do |allotment| %>
       <tr>
-        <td><%= allotment.person.name %></td>
+        <td><%= allotment.user.name %></td>
         <td><%= allotment.created_at %></td>
       </tr>
     <% end %>

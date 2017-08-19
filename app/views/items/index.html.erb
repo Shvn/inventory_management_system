@@ -9,6 +9,9 @@
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
     <th>Name</th>
+    <th>Quantity</th>
+    <th>Time of Procurement</th>
+    <th>Buffer Quantity</th>
     <th colspan="4"></th>
   </tr>
 
@@ -16,6 +19,9 @@
     <% @items.each do |item| %>
       <tr>
         <td><%= item.name %></td>
+        <td><%= item.quantity %></td>
+        <td><%= item.time_of_procurement %></td>
+        <td><%= item.buffer_quantity %></td>
         <td><%= link_to 'View', item_path(item) %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Allotments', allotment_item_path(item) %></td>

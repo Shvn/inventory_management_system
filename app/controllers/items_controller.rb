@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :get_item, only: [:show, :edit, :update]
+  before_action :is_admin, only: [:edit, :create]
 
   def index
     @items = Item.all
@@ -50,6 +51,6 @@ class ItemsController < ApplicationController
     end
 
     def item_params
-      params.require(:item).permit(:name, :category_id, :brand_id)
+      params.require(:item).permit(:name, :category_id, :brand_id, :quantity, :time_of_procurement, :buffer_quantity)
     end
 end
