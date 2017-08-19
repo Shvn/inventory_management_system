@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   before_action :get_issue, only: [:show, :edit, :update, :resolve]
   before_action :is_author, only: [:edit, :update]
   before_action :is_admin, only: [:resolve]
-  after_action :notify_users, only: [:resolve]
+  after_action :notify_user, only: [:resolve]
 
   def index
     @issues = Issue.all
@@ -60,13 +60,5 @@ class IssuesController < ApplicationController
 
     def issue_params
       params.require(:issue).permit(:user_id, :item_id, :details, :status).merge(user_id: current_user)
-    end
-
-    def notify_users
-
-    end
-
-    def is_author
-      redirect_to issues_path unless @issue.user == current_user
     end
 end
