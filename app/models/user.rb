@@ -17,4 +17,12 @@ class User < ApplicationRecord
   validates :is_admin, inclusion: { in: [true, false] }
 
   scope :is_admin, -> { where(is_admin: true)   }
+
+  def get_admin_text
+    if is_admin
+      "Yes"
+    else
+      "No"
+    end
+  end
 end
