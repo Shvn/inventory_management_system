@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style>
+      .alert{
+        color: #fff;
+      }
+      .alert-high{
+        background: red;
+      }
+      .alert-medium{
+        background: blue;
+      }
+      .alert-low{
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="alert alert-<%= @priority.downcase %>">Low quantity of <%= @item.name %></h1>
+    <p>
+      Quantity of item <%= @item.name %> is lowered. There are only <%= pluralize(@item.quantity, "item") %> left. Please take necessary actions as soon as possible.<br>
+    </p>
+  </body>
+</html>

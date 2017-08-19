@@ -25,8 +25,4 @@ class Allotment < ApplicationRecord
   def allocated
     status == 'Allocated'
   end
-
-  def buffer_quantity_reached
-    item.quantity == item.buffer_quantity + 1
-  end
 end

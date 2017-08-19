@@ -15,4 +15,6 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 6 }
   validates :mobile, presence: true, length: { is: 10 }, numericality: { only_integer: true }
   validates :is_admin, inclusion: { in: [true, false] }
+
+  scope :is_admin, -> { where(is_admin: true)   }
 end
