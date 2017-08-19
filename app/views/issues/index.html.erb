@@ -8,6 +8,7 @@
 
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
+    <th>Id</th>
     <th>User</th>
     <th>Item</th>
     <th>Status</th>
@@ -17,10 +18,11 @@
   <% if @issues.present? %>
     <% @issues.each do |issue| %>
       <tr>
+        <td><%= issue.id %></td>
         <td><%= issue.user.name %></td>
         <td><%= issue.item.name %></td>
         <td><%= issue.status %></td>
-        <td><%= link_to 'Edit', edit_issue_path(issue) if is_author(issue) %></td>
+        <td><%= link_to 'Edit', edit_issue_path(issue) if is_author_of(issue) %></td>
         <td><%= link_to 'View', issue_path(issue) %></td>
       </tr>
     <% end %>
