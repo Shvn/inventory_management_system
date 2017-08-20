@@ -29,4 +29,8 @@ module SessionsHelper
   def is_admin
     @current_user.is_admin
   end
+
+  def check_if_admin
+    render 'layouts/admin_authorization' unless is_admin
+  end
 end
