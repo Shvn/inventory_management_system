@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user, except: [:index]
-  before_action :check_if_already_authenticated, except: [:index]
+  skip_before_action :authenticate_user, except: [:index, :allotment]
+  before_action :check_if_already_authenticated, except: [:index, :allotment]
 
   def index
     @users = User.all

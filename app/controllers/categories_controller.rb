@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :check_if_admin, only: [:new, :create, :edit, :update, :destroy]
   before_action :get_category, only: [:show, :edit, :update, :destroy]
 
   def index

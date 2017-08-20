@@ -1,4 +1,4 @@
-<% title = (@allotments.present?) ? @allotments.first.item.name : 'Item' %>
+<% title = (@allotments.present?) ? @allotments.first.user.name : 'User' %>
 <% content_for :title, "Listing #{title}'s Allotments" %>
 
 <h1><%= yield(:title) %></h1>
@@ -7,14 +7,14 @@
 
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
-    <th>User</th>
+    <th>Item</th>
     <th>Time</th>
   </tr>
 
   <% if @allotments.present? %>
     <% @allotments.each do |allotment| %>
       <tr>
-        <td><%= allotment.user.name %></td>
+        <td><%= allotment.item.name %></td>
         <td><%= allotment.created_at %></td>
       </tr>
     <% end %>

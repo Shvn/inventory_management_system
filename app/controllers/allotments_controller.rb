@@ -4,6 +4,7 @@ class AllotmentsController < ApplicationController
   after_action :check_quantity, only: [:create, :update, :destroy]
   after_action :decrement_quantity, only: [:create, :update]
   after_action :increment_quantity, only: [:destroy]
+  before_action :check_if_admin, only: [:new, :create, :update, :destroy]
   before_action :get_allotment, only: [:show, :update, :destroy]
   before_action :get_item, only: [:create, :update, :destroy]
 
@@ -18,7 +19,7 @@ class AllotmentsController < ApplicationController
   def create
     default = { status: "Allocated" }
     @allotment = Allotment.new(allotment_params.merge(default))
-    
+
     if @item.available?
       @allotment.save
       flash[:success] = "Allotment successful"

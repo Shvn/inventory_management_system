@@ -2,7 +2,7 @@
 
 <h1><%= yield(:title) %></h1>
 
-<%= link_to 'New brand', new_brand_path, class: "btn btn-success" %>
+<%= link_to 'New brand', new_brand_path, class: "btn btn-success" if is_admin %>
 
 <%= render 'shared/flash' %>
 
@@ -17,10 +17,10 @@
       <tr>
         <td><%= brand.name %></td>
         <td><%= link_to 'View', brand_path(brand) %></td>
-        <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
+        <td><%= link_to 'Edit', edit_brand_path(brand) if is_admin %></td>
         <td><%= link_to 'Destroy', brand_path(brand),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+                data: { confirm: 'Are you sure?' } if is_admin %></td>
       </tr>
     <% end %>
   <% else %>

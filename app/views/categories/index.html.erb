@@ -2,7 +2,7 @@
 
 <h1><%= yield(:title) %></h1>
 
-<%= link_to 'New category', new_category_path, class: "btn btn-success" %>
+<%= link_to 'New category', new_category_path, class: "btn btn-success" if is_admin %>
 
 <%= render 'shared/flash' %>
 
@@ -17,10 +17,10 @@
       <tr>
         <td><%= category.name %></td>
         <td><%= link_to 'View', category_path(category) %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) if is_admin %></td>
         <td><%= link_to 'Destroy', category_path(category),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+                data: { confirm: 'Are you sure?' } if is_admin %></td>
       </tr>
     <% end %>
   <% else %>

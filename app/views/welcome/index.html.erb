@@ -5,7 +5,7 @@
     <h1>Hello, User!</h1>
     <p>Welcome to a light-weight, easy-to-use and responsive inventory management system. From now on keep records of all your inventories hassle free and easily with our all-in-one powerful application.</p>
     <% unless signned_in? %>
-      <p><%= link_to "Get Started", signin_path, class: "btn btn-primary btn-lg" %></p>
+      <p><%= link_to "Get Started", signup_path, class: "btn btn-primary btn-lg" %></p>
     <% end %>
   </div>
 </div>

@@ -2,7 +2,7 @@
 
 <h1><%= yield(:title) %></h1>
 
-<%= link_to 'New item', new_item_path, class: "btn btn-success" %>
+<%= link_to 'New item', new_item_path, class: "btn btn-success" if is_admin %>
 
 <%= render 'shared/flash' %>
 
@@ -10,7 +10,7 @@
   <tr>
     <th>Name</th>
     <th>Quantity</th>
-    <th>Time of Procurement</th>
+    <th>Time of Procurement (in days)</th>
     <th>Buffer Quantity</th>
     <th colspan="4"></th>
   </tr>
@@ -23,7 +23,7 @@
         <td><%= item.time_of_procurement %></td>
         <td><%= item.buffer_quantity %></td>
         <td><%= link_to 'View', item_path(item) %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) if is_admin %></td>
         <td><%= link_to 'Allotments', allotment_item_path(item) %></td>
         <td><%= link_to 'History', history_item_path(item) %></td>
       </tr>
