@@ -11,6 +11,8 @@ class Item < ApplicationRecord
   validates :time_of_procurement, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validates :buffer_quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
 
+  after_commit :check_quantity
+
   def buffer_quantity_reached?
     quantity <= buffer_quantity - 1
   end
@@ -28,5 +30,17 @@ class Item < ApplicationRecord
 
   def available?
     quantity > 0
+  end
+
+  def check_quantity
+    notify_admins if buffer_quantity_reached?
+  end
+
+  def notify_admins
+    admins = User.type_admin
+    priority = calculate_priority
+    admins.each do |admin|
+      BufferMailer.low_quantity_email(admin, self, priority).deliver_now
+    end
   end
 end

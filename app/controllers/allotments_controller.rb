@@ -1,12 +1,9 @@
 class AllotmentsController < ApplicationController
   include AllotmentsHelper
 
-  after_action :check_quantity, only: [:create, :update, :destroy]
-  after_action :decrement_quantity, only: [:create, :update]
-  after_action :increment_quantity, only: [:destroy]
   before_action :check_if_admin, only: [:new, :create, :update, :destroy]
   before_action :get_allotment, only: [:show, :update, :destroy]
-  before_action :get_item, only: [:create, :update, :destroy]
+  before_action :get_item, only: [:update, :destroy]
 
   def index
     @allotments = Allotment.includes(:item, :user).all.order_descending
@@ -19,12 +16,17 @@ class AllotmentsController < ApplicationController
   def create
     default = { status: "Allocated" }
     @allotment = Allotment.new(allotment_params.merge(default))
-
+    get_item
     if @item.available?
-      @allotment.save
-      flash[:success] = "Allotment successful"
-      redirect_to @allotment
+      if @allotment.save
+        decrement_quantity
+        flash[:success] = "Allotment successful"
+        redirect_to @allotment
+      else
+        render 'new'
+      end
     else
+      @allotment.errors.add(:item, " is out of stock")
       render 'new'
     end
   end
@@ -35,10 +37,14 @@ class AllotmentsController < ApplicationController
   def update
     default = { status: "Allocated" }
     if @item.available?
-      @allotment.update(default)
-      flash[:success] = "Successfully re-allocated"
+      if @allotment.update(default)
+        decrement_quantity
+        flash[:success] = "Successfully re-allocated"
+      else
+        flash[:danger] = 'Could not allocate'
+      end
     else
-      flash[:danger] = "Item is out of stock"
+      flash[:warning] = "Item is out of stock"
     end
     redirect_to allotment_path
   end
@@ -46,6 +52,7 @@ class AllotmentsController < ApplicationController
   def destroy
     default = { status: "Deallocated" }
     if @allotment.update(default)
+      increment_quantity
       flash[:success] = "Successfully deallocated"
     else
       flash[:danger] = "Could not deallocate"

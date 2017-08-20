@@ -5,7 +5,7 @@ class IssueMailer < ApplicationMailer
     @issue = issue
     mail(
       to: user.email,
-      subject: "Your issue with id #{@issue.id} is resolved"
+      subject: "Issue##{@issue.id} is resolved"
     )
   end
 end
