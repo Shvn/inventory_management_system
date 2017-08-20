@@ -20,7 +20,7 @@
   <body>
     <h1 class="alert alert-<%= @priority.downcase %>">Low quantity of <%= @item.name %></h1>
     <p>
-      Quantity of item <%= @item.name %> is lowered. There are only <%= pluralize(@item.quantity, "item") %> left. Please take necessary actions as soon as possible.<br>
+      Quantity of item <%= @item.name %> is lowered. There are only <%= pluralize(@item.reload.quantity, "item") %> left. Please take necessary actions as soon as possible.<br>
     </p>
   </body>
 </html>
