@@ -9,7 +9,11 @@ Rails.application.routes.draw do
   end
   resources :categories
   resources :brands
-  resources :users, only: [:index, :new, :create]
+  resources :users, except: [:edit, :update, :destroy] do
+    member do
+      get 'allotment'
+    end
+  end
   resources :allotments, except: [:edit] do
     member do
       get 'history'
