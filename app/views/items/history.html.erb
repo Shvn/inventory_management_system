@@ -1,4 +1,5 @@
-<% content_for :title, "Listing #{@allotment_histories.first.allotment.item.name}'s Allotment History" %>
+<% title = (@allotment_histories.present?) ? @allotment_histories.first.allotment.item.name : 'Item' %>
+<% content_for :title, "Listing #{title}'s Allotment History" %>
 
 <h1><%= yield(:title) %></h1>
 
