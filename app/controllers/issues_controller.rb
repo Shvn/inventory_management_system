@@ -7,7 +7,7 @@ class IssuesController < ApplicationController
   after_action :notify_user, only: [:resolve]
 
   def index
-    @issues = Issue.all
+    @issues = Issue.includes(:user, :item).all
   end
 
   def show
