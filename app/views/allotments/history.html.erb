@@ -7,7 +7,7 @@
 <table class="table table-rsponsive table-striped" id="list-table">
   <tr>
     <th>Item</th>
-    <th>Person</th>
+    <th>User</th>
     <th>Action</th>
     <th>Time</th>
   </tr>
@@ -16,7 +16,7 @@
     <% @allotment_histories.each do |history| %>
       <tr>
         <td><%= history.allotment.item.name %></td>
-        <td><%= history.allotment.person.name %></td>
+        <td><%= history.allotment.user.name %></td>
         <td><%= history.action %></td>
         <td><%= history.created_at %></td>
       </tr>
