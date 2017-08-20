@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
+  before_action :check_if_admin, only: [:new, :create, :edit, :update]
   before_action :get_item, only: [:show, :edit, :update]
-  before_action :is_admin, only: [:edit, :create]
 
   def index
     @items = Item.all

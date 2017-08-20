@@ -3,7 +3,7 @@ class IssuesController < ApplicationController
 
   before_action :get_issue, only: [:show, :edit, :update, :resolve]
   before_action :is_author, only: [:edit, :update]
-  before_action :is_admin, only: [:resolve]
+  before_action :check_if_admin, only: [:resolve]
   after_action :notify_user, only: [:resolve]
 
   def index
