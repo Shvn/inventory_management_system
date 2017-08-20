@@ -12,7 +12,7 @@ module AllotmentsHelper
   end
 
   def notify_admins
-    @admins = User.is_admin
+    @admins = User.type_admin
     @priority = @item.calculate_priority
     @admins.each do |admin|
       BufferMailer.low_quantity_email(admin, @item, @priority).deliver_now
